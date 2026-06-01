@@ -1013,6 +1013,19 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
 .dlg-text{font-size:13px;color:#d8d0c0;line-height:1.6}
 .dlg-sub{font-family:var(--ff-mono);font-size:10.5px;color:#444038;font-style:italic;padding-left:80px;margin:-2px 0 4px}
 
+
+.p4-hero{background:var(--ink);padding:56px 40px 48px;position:relative;overflow:hidden}
+.p4-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(66,133,244,.18),transparent 65%);pointer-events:none}
+.p4-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.p4-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(66,133,244,.2);border:1px solid rgba(66,133,244,.4);color:#7ab0ff;font-family:var(--ff-mono);font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+.p4-hero h1{font-family:var(--ff-head);font-size:clamp(30px,4.5vw,50px);font-weight:700;line-height:1.07;letter-spacing:-1.5px;color:#f0ede6;margin-bottom:14px}
+.p4-hero h1 em{font-style:italic;font-weight:300;color:#7ab0ff}
+.p4-hero-desc{font-size:14.5px;color:#888070;max-width:560px;line-height:1.75}
+
+/* connection guide tabs */
+.cg-combine{display:grid;grid-template-columns:1fr 40px 1fr;gap:14px;align-items:center;margin:24px 0}
+@media(max-width:640px){.cg-combine{grid-template-columns:1fr;gap:10px}.cg-combine>div:nth-child(2){display:none}}
+
 </style>
 </head>
 <body>
@@ -1033,6 +1046,9 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
     <button class="page-btn" onclick="switchPage('p3',this)">
       <span class="pg-num">03</span> Cowork & Skills
     </button>
+    <button class="page-btn" onclick="switchPage('p4',this)">
+      <span class="pg-num">04</span> Hướng Dẫn Kết Nối
+    </button>
   </div>
 </nav>
 <div class="page active" id="p0">
@@ -1042,7 +1058,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
   <div class="p0-hero-bg"></div>
   <div class="p0-hero-dots"></div>
   <div class="p0-hero-inner">
-    <div class="p0-tag"><span class="p0-tag-dot"></span>Cập nhật tháng 5/2026</div>
+    <div class="p0-tag"><span class="p0-tag-dot"></span>Cập nhật tháng 6/2026</div>
     <h1>Bản Đồ<br><em>Công Cụ AI</em><br>Hiện Tại</h1>
     <p class="p0-hero-desc">Từ Chat AI đến tạo ảnh, video, nhạc, slide — tổng quan tất cả công cụ AI đang được dùng thực tế năm 2025–2026, kèm cách ứng dụng cụ thể.</p>
     <div class="p0-hero-stats">
@@ -1077,23 +1093,24 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <div class="ai-card-icon" style="background:rgba(201,163,77,.12)">🧠</div>
       <div>
         <div class="ai-card-name">Claude</div>
-        <div class="ai-card-version">Opus 4.6 · Sonnet 4.6 · Haiku 4.5 — Anthropic</div>
+        <div class="ai-card-version">Opus 4.8 · Sonnet 4.6 · Haiku 4.5 — Anthropic</div>
       </div>
       <span class="ai-badge-best">Phân tích sâu</span>
     </div>
     <div class="ai-card-body">
-      <div class="ai-card-desc">Xuất sắc về tư duy sâu, phân tích văn bản dài, viết sáng tạo và phát triển nhân vật. Context window 200K token. Reasoning tự động với Opus 4.6.</div>
+      <div class="ai-card-desc"><strong>Claude Opus 4.8</strong> (28/5/2026) — model mạnh nhất hiện tại cho coding, agentic và knowledge work. Context window 1M token, hybrid reasoning, đáng tin cậy hơn (ít bịa, biết flag điểm không chắc). Fast mode nhanh 2.5x, rẻ 3x so với trước. Dynamic Workflows điều phối nhiều subagent.</div>
       <div class="ai-card-uses">
         <div class="use-item"><span class="use-icon">📝</span><span>Phân tích tài liệu dài, hợp đồng, báo cáo</span></div>
         <div class="use-item"><span class="use-icon">🎭</span><span>Viết kịch bản, phát triển nhân vật có chiều sâu</span></div>
-        <div class="use-item"><span class="use-icon">💻</span><span>Code review, debug, kiến trúc hệ thống</span></div>
+        <div class="use-item"><span class="use-icon">💻</span><span>Code migration quy mô lớn, debug, kiến trúc</span></div>
         <div class="use-item"><span class="use-icon">🔬</span><span>Nghiên cứu, tổng hợp kiến thức phức tạp</span></div>
       </div>
       <div class="ai-card-tags">
         <span class="ai-tag" style="background:#fff2ee;color:#b83c1a;border:1px solid rgba(184,60,26,.2)">XML Prompting</span>
-        <span class="ai-tag" style="background:#eef4ff;color:#1a4e8c;border:1px solid rgba(26,78,140,.2)">200K context</span>
+        <span class="ai-tag" style="background:#eef4ff;color:#1a4e8c;border:1px solid rgba(26,78,140,.2)">1M context</span>
+        <span class="ai-tag" style="background:#f5f0ff;color:#5a2e8c;border:1px solid rgba(90,46,140,.2)">Effort control</span>
       </div>
-      <div class="ai-price">Free · Pro $20/tháng</div>
+      <div class="ai-price">Free · Pro $20/tháng · Cowork & Claude Code</div>
     </div>
   </div>
 
@@ -1102,23 +1119,24 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <div class="ai-card-icon" style="background:rgba(16,163,127,.12)">💬</div>
       <div>
         <div class="ai-card-name">ChatGPT</div>
-        <div class="ai-card-version">GPT-5 · GPT-4o · o3 — OpenAI</div>
+        <div class="ai-card-version">GPT-5.5 · GPT-5.5 Pro · 5.5 Instant — OpenAI</div>
       </div>
       <span class="ai-badge-best">Phổ biến nhất</span>
     </div>
     <div class="ai-card-body">
-      <div class="ai-card-desc">Đa năng nhất, hệ sinh thái plugins phong phú nhất. GPT-5 tích hợp reasoning, image generation (GPT Image 2), web search và tool use đỉnh cao.</div>
+      <div class="ai-card-desc"><strong>GPT-5.5</strong> (23/4/2026) — model agentic mạnh nhất của OpenAI, làm nhiều với ít hướng dẫn hơn. Xuất sắc viết/debug code, research online, phân tích data, tạo document/spreadsheet, điều khiển phần mềm. GPT-5.5 Instant là default mới của ChatGPT. Image generation qua GPT Image 2.</div>
       <div class="ai-card-uses">
         <div class="use-item"><span class="use-icon">✍️</span><span>Viết nội dung, email, báo cáo nhanh</span></div>
         <div class="use-item"><span class="use-icon">🖼️</span><span>Tạo ảnh trực tiếp với GPT Image 2</span></div>
         <div class="use-item"><span class="use-icon">💡</span><span>Brainstorm, lên ý tưởng, outline nhanh</span></div>
-        <div class="use-item"><span class="use-icon">🔌</span><span>Tích hợp qua Custom GPTs và API</span></div>
+        <div class="use-item"><span class="use-icon">🔌</span><span>Agentic tasks, Custom GPTs và Codex</span></div>
       </div>
       <div class="ai-card-tags">
         <span class="ai-tag" style="background:#edfaf3;color:#0d6e5a;border:1px solid rgba(13,110,90,.2)">Đa năng</span>
         <span class="ai-tag" style="background:#eef4ff;color:#1a4e8c;border:1px solid rgba(26,78,140,.2)">Custom GPTs</span>
+        <span class="ai-tag" style="background:#fff2ee;color:#b83c1a;border:1px solid rgba(184,60,26,.2)">Agentic</span>
       </div>
-      <div class="ai-price">Free · Plus $20/tháng · Pro $200/tháng</div>
+      <div class="ai-price">Free (5.5 Instant) · Plus $20/tháng · Pro $200/tháng</div>
     </div>
   </div>
 
@@ -1467,11 +1485,16 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <span class="ai-badge-best">Miễn phí + chính xác</span>
     </div>
     <div class="ai-card-body">
-      <div class="ai-card-desc">Tạo slide từ tài liệu bạn upload — không hallucinate. Miễn phí hoàn toàn. Podcast AI từ tài liệu. Tốt nhất khi slide cần dựa chặt vào nội dung có sẵn.</div>
+      <div class="ai-card-desc">Tạo slide, podcast, mind map, infographic từ tài liệu bạn upload — không hallucinate, luôn dẫn nguồn. <strong>Xây trên Gemini 3</strong> và <strong>tích hợp 2 chiều với Gemini app</strong> (4/2026). Tốt nhất khi cần output dựa chặt vào nội dung có sẵn.</div>
       <div class="ai-card-uses">
         <div class="use-item"><span class="use-icon">📄</span><span>Slide từ báo cáo / tài liệu nội bộ</span></div>
-        <div class="use-item"><span class="use-icon">🎙️</span><span>Podcast AI từ bất kỳ tài liệu nào</span></div>
-        <div class="use-item"><span class="use-icon">❓</span><span>Q&A thông minh từ kho tài liệu</span></div>
+        <div class="use-item"><span class="use-icon">🎙️</span><span>Audio Overview (podcast AI) từ tài liệu</span></div>
+        <div class="use-item"><span class="use-icon">🔗</span><span>Attach notebook vào Gemini → kết hợp web search</span></div>
+        <div class="use-item"><span class="use-icon">❓</span><span>Q&A có dẫn nguồn từ kho tài liệu (600 sources)</span></div>
+      </div>
+      <div class="ai-card-tags">
+        <span class="ai-tag" style="background:#eef4ff;color:#1a4e8c;border:1px solid rgba(26,78,140,.2)">Gemini 3</span>
+        <span class="ai-tag" style="background:#edfaf3;color:#0d6e5a;border:1px solid rgba(13,110,90,.2)">Có dẫn nguồn</span>
       </div>
       <div class="ai-price">Hoàn toàn miễn phí</div>
     </div>
@@ -1488,7 +1511,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <span class="ai-badge-best">Code editor số 1</span>
     </div>
     <div class="ai-card-body">
-      <div class="ai-card-desc">VS Code tích hợp AI agent mạnh nhất. Hiểu toàn bộ codebase, viết code từ mô tả tự nhiên, debug và refactor tự động. Dùng Claude/GPT-5 làm backend.</div>
+      <div class="ai-card-desc">VS Code tích hợp AI agent mạnh nhất. Hiểu toàn bộ codebase, viết code từ mô tả tự nhiên, debug và refactor tự động. Dùng Claude Opus 4.8 / GPT-5.5 làm backend.</div>
       <div class="ai-card-uses">
         <div class="use-item"><span class="use-icon">⚙️</span><span>Tự động viết feature từ mô tả ngắn</span></div>
         <div class="use-item"><span class="use-icon">🐛</span><span>Debug và fix bug thông minh</span></div>
@@ -1739,9 +1762,9 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
   <div class="eco-grid">
     <div>
       <div class="eco-col-title" style="color:#18a07c;border-color:#18a07c">💬 Chat AI</div>
-      <div class="eco-tool">Claude Opus 4.6 <span class="eco-tool-sub">Phân tích sâu</span></div>
-      <div class="eco-tool">ChatGPT GPT-5 <span class="eco-tool-sub">Đa năng</span></div>
-      <div class="eco-tool">Gemini 2.5 Pro <span class="eco-tool-sub">Google ecosystem</span></div>
+      <div class="eco-tool">Claude Opus 4.8 <span class="eco-tool-sub">Phân tích sâu</span></div>
+      <div class="eco-tool">ChatGPT GPT-5.5 <span class="eco-tool-sub">Đa năng</span></div>
+      <div class="eco-tool">Gemini 3.5 Flash <span class="eco-tool-sub">Google ecosystem</span></div>
       <div class="eco-tool">Perplexity <span class="eco-tool-sub">Search AI</span><span class="eco-free">FREE</span></div>
       <div class="eco-tool">Mistral / Llama <span class="eco-tool-sub">Open source</span><span class="eco-free">FREE</span></div>
     </div>
@@ -1770,7 +1793,9 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <div class="eco-tool">HeyGen <span class="eco-tool-sub">Avatar video</span></div>
     </div>
   </div>
+</div>
 
+<div class="block" style="margin-bottom:0">
   <div style="text-align:center;padding:24px 0 8px">
     <button onclick="switchPage('p1', document.querySelectorAll('.page-btn')[1])" style="background:var(--ink);color:var(--cream);border:none;padding:14px 32px;border-radius:100px;font-family:var(--ff-body);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:10px" onmouseover="this.style.background='var(--rust)'" onmouseout="this.style.background='var(--ink)'">
       Học cách viết Prompt chuẩn →
@@ -1781,8 +1806,8 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
 </div><!-- /wrap p0 -->
 
 <div class="footer">
-  <div class="footer-left"><strong>Bản đồ AI Tools 2025–2026</strong> · Cập nhật tháng 5/2026<div style="margin-top:3px;font-size:11.5px">Dữ liệu từ: Product pages · Benchmark reports · Kiểm chứng thực tế</div></div>
-  <div class="footer-chips"><span class="chip">40+ tools</span><span class="chip">7 categories</span><span class="chip">Cập nhật 5/2026</span></div>
+  <div class="footer-left"><strong>Bản đồ AI Tools 2025–2026</strong> · Cập nhật tháng 6/2026<div style="margin-top:3px;font-size:11.5px">Dữ liệu từ: Product pages · Benchmark reports · Kiểm chứng thực tế</div></div>
+  <div class="footer-chips"><span class="chip">40+ tools</span><span class="chip">7 categories</span><span class="chip">Cập nhật 6/2026</span></div>
 </div>
 
 </div><!-- /p0 -->
@@ -1794,7 +1819,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
 
 <div class="hero">
   <div>
-    <div class="hero-eyebrow">Tài liệu hướng dẫn · Cập nhật 5/2026</div>
+    <div class="hero-eyebrow">Tài liệu hướng dẫn · Cập nhật 6/2026</div>
     <h1>Cấu Trúc<br><em>Prompt Chuẩn</em></h1>
     <p class="hero-desc">Khung 6 thành phần phổ quát — hoạt động với Claude, ChatGPT, Gemini và mọi AI model. Kèm kỹ thuật nâng cao có ví dụ thực tế.</p>
   </div>
@@ -1835,7 +1860,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
         <span class="comp-en">Giao danh tính cho AI</span>
       </div>
       <div class="comp-body">
-        <p class="comp-desc">Bắt đầu bằng cách "nhập vai" cho AI. Chỉ định chuyên môn, phong cách giao tiếp và điểm nhìn. Với model reasoning 2025+ (Claude Opus 4.6, GPT-5): vai trò quá phức tạp kém hiệu quả hơn mô tả nhiệm vụ trực tiếp — giữ ngắn gọn, cụ thể.</p>
+        <p class="comp-desc">Bắt đầu bằng cách "nhập vai" cho AI. Chỉ định chuyên môn, phong cách giao tiếp và điểm nhìn. Với model reasoning 2025–2026 (Claude Opus 4.8, GPT-5.5, Gemini 3.5): vai trò quá phức tạp kém hiệu quả hơn mô tả nhiệm vụ trực tiếp — giữ ngắn gọn, cụ thể.</p>
         <div class="comp-bad"><div class="badge-label">✗ Kém</div><div class="comp-txt">Bạn là AI trợ lý hữu ích và thông minh.</div></div>
         <div class="comp-good"><div class="badge-label">✓ Tốt</div><div class="comp-txt">Bạn là copywriter B2B chuyên SaaS, viết tiếng Việt tự nhiên, ưu tiên số liệu và lợi ích cụ thể hơn ngôn ngữ hoa mỹ.</div></div>
         <div class="tip-row"><span>💡</span><span>Thêm <strong>phong cách giao tiếp</strong>: "ngắn gọn đi thẳng vào điểm", "giải thích như cho người mới bắt đầu", "phản biện trực tiếp nếu thấy sai"...</span></div>
@@ -1958,12 +1983,12 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <div class="tf-num">Kỹ thuật 02</div>
       <div class="tf-name">Chain-of-Thought</div>
       <span class="tf-tag" style="background:#fff2ee;color:#cc4444;border:1px solid rgba(200,68,68,.25)">⚠ Lỗi thời với model 2025+</span>
-      <div class="tf-desc"><strong>Với model KHÔNG có reasoning</strong> (Llama, Gemini Flash, các model cũ): thêm "hãy suy nghĩ từng bước" cải thiện 15–40% trên bài toán logic. <strong>Với Claude Opus 4.6, GPT-5, Gemini 2.5</strong>: reasoning đã built-in, thêm CoT không có tác dụng — thậm chí "đọc to" reasoning thay vì để nó chạy ngầm hiệu quả hơn.</div>
+      <div class="tf-desc"><strong>Với model KHÔNG có reasoning</strong> (Llama, Gemini Flash, các model cũ): thêm "hãy suy nghĩ từng bước" cải thiện 15–40% trên bài toán logic. <strong>Với Claude Opus 4.8, GPT-5.5, Gemini 3.5</strong>: reasoning đã built-in, thêm CoT không có tác dụng — thậm chí "đọc to" reasoning thay vì để nó chạy ngầm hiệu quả hơn.</div>
     </div>
     <div class="tf-right">
       <div class="code-dark">
         <div class="copy-row"><span class="copy-lbl">Dùng với model KHÔNG reasoning</span><button class="copy-btn" onclick="copyCode(this,'cot')">Copy</button></div><span id="cot"><span class="cmt"># Chỉ dùng với: Llama, Gemini Flash, model 2023-era</span>
-<span class="cmt"># KHÔNG cần với: Claude 4.6, GPT-5, Gemini 2.5</span>
+<span class="cmt"># KHÔNG cần với: Claude Opus 4.8, GPT-5.5, Gemini 3.5</span>
 
 <span class="lbl">Bài toán:</span>
 <span class="var">[Mô tả vấn đề cần giải quyết]</span>
@@ -2170,20 +2195,20 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
   <div class="model-cards">
     <div class="mc" style="background:#fff8f5;border:1.5px solid #e8d0c0;--mc:#b83c1a">
       <div class="mc-logo">Claude</div>
-      <div class="mc-ver">Opus 4.6 · Sonnet 4.6 · Haiku 4.5</div>
+      <div class="mc-ver">Opus 4.8 · Sonnet 4.6 · Haiku 4.5</div>
       <div class="mc-rule"><span class="mc-icon">✦</span><span>Dùng <strong>XML tags</strong>: &lt;task&gt;, &lt;context&gt;, &lt;document&gt;, &lt;format&gt;</span></div>
       <div class="mc-rule"><span class="mc-icon">✦</span><span>Prompt <strong>150–400 từ</strong> là tối ưu</span></div>
       <div class="mc-rule"><span class="mc-icon">✦</span><span>Mạnh nhất: phân tích sâu, nhân vật, subtext, tài liệu dài</span></div>
-      <div class="mc-rule"><span class="mc-icon">✦</span><span>Adaptive thinking tự động với task phức tạp</span></div>
+      <div class="mc-rule"><span class="mc-icon">✦</span><span>Context 1M token · Effort control · Hybrid reasoning</span></div>
       <div class="mc-rule"><span class="mc-icon" style="color:#cc4444">✗</span><span style="color:#cc5533">TRÁNH: "hãy nghĩ từng bước" — đã built-in</span></div>
       <span class="mc-badge">XML-first</span>
     </div>
     <div class="mc" style="background:#f5faf5;border:1.5px solid #c0d8c0;--mc:#18a07c">
       <div class="mc-logo" style="color:#18a07c">ChatGPT</div>
-      <div class="mc-ver">GPT-5 · GPT-4o · o3</div>
+      <div class="mc-ver">GPT-5.5 · GPT-5.5 Pro · 5.5 Instant</div>
       <div class="mc-rule"><span class="mc-icon">✦</span><span>Dùng <strong>Markdown headings</strong>: ## Role, ## Task, ## Output</span></div>
-      <div class="mc-rule"><span class="mc-icon">✦</span><span>Prompt <strong>ngắn gọn, trực tiếp</strong> — GPT-5 tự suy luận tốt</span></div>
-      <div class="mc-rule"><span class="mc-icon">✦</span><span>Mạnh nhất: format chuẩn, brainstorm, structured output</span></div>
+      <div class="mc-rule"><span class="mc-icon">✦</span><span>Prompt <strong>ngắn gọn, trực tiếp</strong> — GPT-5.5 tự suy luận tốt</span></div>
+      <div class="mc-rule"><span class="mc-icon">✦</span><span>Mạnh nhất: agentic tasks, format chuẩn, structured output</span></div>
       <div class="mc-rule"><span class="mc-icon">✦</span><span>JSON schema cho structured output cực hiệu quả</span></div>
       <div class="mc-rule"><span class="mc-icon" style="color:#cc4444">✗</span><span style="color:#cc5533">TRÁNH: persona quá phức tạp, prompt &gt;500 từ</span></div>
       <span class="mc-badge" style="color:#18a07c;border-color:#18a07c">Markdown-first</span>
@@ -2220,7 +2245,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <div class="rc-title"><span style="color:var(--rust);font-size:18px">✗</span> Không nên</div>
       <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>Prompt quá ngắn / mơ hồ</strong> — "Giải thích X" mà không có ngữ cảnh.</div><div class="rule-note">AI chọn góc trả lời ngẫu nhiên.</div></div></div>
       <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>Nhồi 3–4 nhiệm vụ không liên quan</strong> vào 1 prompt — hiệu quả giảm đáng kể.</div></div></div>
-      <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>"Hãy nghĩ từng bước"</strong> với Claude 4.6/GPT-5/Gemini 2.5 — không có tác dụng.</div><div class="rule-note">Reasoning đã built-in — cập nhật 2025–2026.</div></div></div>
+      <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>"Hãy nghĩ từng bước"</strong> với Claude Opus 4.8 / GPT-5.5 / Gemini 3.5 — không có tác dụng.</div><div class="rule-note">Reasoning đã built-in — cập nhật 2025–2026.</div></div></div>
       <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>Prompt quá dài (&gt;500 từ)</strong> — reasoning suy giảm sau ~3.000 tokens. Điểm tối ưu: 150–300 từ.</div></div></div>
       <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>"Điều này rất quan trọng với tôi"</strong> — emotional primer không ảnh hưởng model 2025+.</div></div></div>
       <div class="rule"><span class="rule-icon">🚫</span><div><div class="rule-text"><strong>Chấp nhận output đầu tiên</strong> nếu chưa tốt — AI mong bạn phản hồi tiếp.</div></div></div>
@@ -2483,8 +2508,77 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
     </div>
   </div>
 
-  <!-- TEMPLATE 3 NỀN TẢNG -->
-  <div style="font-family:var(--ff-head);font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)">Template Instructions — Copy & Điều chỉnh</div>
+  <!-- HƯỚNG DẪN CHI TIẾT GPT & GEMINI -->
+  <div style="font-family:var(--ff-head);font-size:18px;font-weight:600;margin:8px 0 16px;color:var(--ink)">Hướng Dẫn Chi Tiết — Tạo Custom GPT & Gem</div>
+
+  <div class="grid2" style="margin-bottom:28px">
+
+    <!-- CUSTOM GPT DETAILED -->
+    <div style="background:#f5faf5;border:1.5px solid #c0d8c0;border-radius:16px;padding:24px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(24,160,102,.06)"></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><span style="font-size:22px">🟢</span><span style="font-family:var(--ff-head);font-size:19px;font-weight:700;color:#18a07c">ChatGPT Custom GPT</span></div>
+      <div style="font-family:var(--ff-mono);font-size:9.5px;color:var(--ink4);letter-spacing:1px;margin-bottom:16px">chatgpt.com → Explore GPTs → Create</div>
+
+      <div style="font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Các bước tạo</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#18a07c;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">1</span><span>Vào <strong>Explore GPTs → Create</strong>. Có 2 chế độ: <em>Create</em> (trò chuyện để build) hoặc <em>Configure</em> (cấu hình trực tiếp — khuyên dùng)</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#18a07c;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">2</span><span>Điền <strong>Name</strong> + <strong>Description</strong> ngắn, rồi viết <strong>Instructions</strong> (ô chính)</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#18a07c;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">3</span><span>Upload <strong>Knowledge files</strong> (tối đa 20 file) làm nguồn tham chiếu</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#18a07c;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">4</span><span>Bật tools cần thiết: <strong>Web Search · Canvas · Image · Code Interpreter</strong></span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#18a07c;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">5</span><span>Thêm <strong>Conversation starters</strong>, test ở panel Preview bên phải, rồi <strong>Save</strong></span></div>
+      </div>
+
+      <div style="font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Lưu ý quan trọng</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px">📐 Ô Instructions hỗ trợ <strong>~8.000 ký tự</strong> — đủ chi tiết, dùng ## Markdown headings để phân tách</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px">📚 Knowledge: 20 file max — GPT dùng làm "nguồn sự thật", giảm bịa</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px">🔧 Actions: kết nối API ngoài qua schema — nâng cao, cho dev</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px">🌐 Publish: riêng tư / qua link / công khai GPT Store</div>
+      </div>
+    </div>
+
+    <!-- GEMINI GEM DETAILED -->
+    <div style="background:#f5f8ff;border:1.5px solid #c0ccdf;border-radius:16px;padding:24px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(36,104,200,.06)"></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><span style="font-size:22px">💎</span><span style="font-family:var(--ff-head);font-size:19px;font-weight:700;color:#2468c8">Gemini Gem</span></div>
+      <div style="font-family:var(--ff-mono);font-size:9.5px;color:var(--ink4);letter-spacing:1px;margin-bottom:16px">gemini.google.com → Explore Gems → New Gem</div>
+
+      <div style="font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Các bước tạo</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#2468c8;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">1</span><span>Bên trái, bấm <strong>Explore Gems → New Gem</strong></span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#2468c8;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">2</span><span>Đặt <strong>tên Gem</strong> và viết <strong>Instructions</strong> theo 4 vùng (xem dưới)</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#2468c8;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">3</span><span>Mẹo: gõ 1–2 câu mô tả mục tiêu → bấm <strong>"Use Gemini to rewrite instructions"</strong> để AI mở rộng giúp</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#2468c8;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">4</span><span>Thêm <strong>file tham chiếu</strong> (có thể link cả Notebook từ NotebookLM)</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);line-height:1.55"><span style="background:#2468c8;color:white;font-family:var(--ff-mono);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">5</span><span>Preview ở panel bên phải → bấm <strong>Save</strong> (preview KHÔNG tự lưu!)</span></div>
+      </div>
+
+      <div style="font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">4 vùng instruction của Gem</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px"><strong style="color:#2468c8">Persona</strong> — Gem này LÀ AI? "Bạn là chiến lược gia B2B SaaS 15 năm kinh nghiệm"</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px"><strong style="color:#2468c8">Task</strong> — Gem LÀM GÌ? Nhiệm vụ chính, cụ thể</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px"><strong style="color:#2468c8">Context</strong> — Bối cảnh, tài liệu, ràng buộc cần biết</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55;padding:7px 11px;background:var(--paper);border-radius:8px"><strong style="color:#2468c8">Format</strong> — Trả lời dạng nào? Độ dài, cấu trúc</div>
+      </div>
+      <div style="font-size:11.5px;color:var(--ink4);line-height:1.5;margin-top:10px;font-style:italic">Google khuyên 500–2.000 ký tự cho hiệu quả tối ưu. Gem cần Gemini Advanced để tạo.</div>
+    </div>
+
+  </div>
+
+  <!-- TIPS RIÊNG CHO GPT & GEMINI -->
+  <div class="callout c-teal" style="margin-bottom:14px">
+    <span class="callout-icon">🟢</span>
+    <div>
+      <div class="callout-head">Bí quyết riêng cho Custom GPT</div>
+      <div class="callout-body">GPT-5.5 tự suy luận tốt nên <strong>đừng over-engineer</strong> — viết rõ ràng và trực tiếp. Dùng <strong>## headings</strong> để chia section (## Role, ## Rules, ## Output). Nếu GPT hay làm sai 1 điều cụ thể, thêm dòng <strong>"IMPORTANT:"</strong> hoặc <strong>"ALWAYS/NEVER"</strong> viết hoa — GPT ưu tiên các chỉ dẫn nhấn mạnh. Test bằng Preview panel ngay khi viết.</div>
+    </div>
+  </div>
+  <div class="callout c-blue" style="margin-bottom:28px">
+    <span class="callout-icon">💎</span>
+    <div>
+      <div class="callout-head">Bí quyết riêng cho Gemini Gem</div>
+      <div class="callout-body">Gemini có xu hướng trả lời <strong>cấu trúc, phân tích</strong> — nếu cần sáng tạo, ghi rõ "think unconventionally", "explore unexpected angles", "ưu tiên ý tưởng gốc". Mỗi Gem chỉ nên có <strong>1 hành vi chính</strong> — nếu Gem hành xử khác nhau giữa các lần, instruction đang có từ mơ hồ ("đôi khi", "thường", "phù hợp") → thay bằng điều kiện cụ thể. Tận dụng nút <strong>"Use Gemini to rewrite"</strong> để mở rộng nhanh.</div>
+    </div>
+  </div>
 
   <div class="tpl-tabs" id="ins-tabs">
     <button class="tab-btn active" onclick="switchInsTab('gem',this)">Gem (Gemini)</button>
@@ -2901,7 +2995,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
 </div><!-- /wrap p1 -->
 
 <div class="footer">
-  <div class="footer-left"><strong>Tổng hợp từ Google · Anthropic · OpenAI</strong> · Cập nhật 5/2026<div style="margin-top:3px;font-size:11.5px">Kiểm chứng thực tế với Claude Opus 4.6 · GPT-5 · Gemini 2.5 Pro</div></div>
+  <div class="footer-left"><strong>Tổng hợp từ Google · Anthropic · OpenAI</strong> · Cập nhật 6/2026<div style="margin-top:3px;font-size:11.5px">Kiểm chứng thực tế với Claude Opus 4.8 · GPT-5.5 · Gemini 3.5 Flash</div></div>
   <div class="footer-chips"><span class="chip">Google Prompting Essentials</span><span class="chip">Anthropic Docs</span><span class="chip">OpenAI Academy</span><span class="chip">Wharton 2025</span></div>
 </div>
 </div><!-- /p1 -->
@@ -4472,7 +4566,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
 </div><!-- /wrap p2 -->
 
 <div class="footer">
-  <div class="footer-left"><strong>AI cho Biên Kịch &amp; Sản Xuất</strong> · Cập nhật 5/2026<div style="margin-top:3px;font-size:11.5px">Flow · GPT Image 2 · Seedream · Wan 2.7 · Veo 3.1 · Kling 3.0 · Hailuo 2.3 · Seedance 2.0</div></div>
+  <div class="footer-left"><strong>AI cho Biên Kịch &amp; Sản Xuất</strong> · Cập nhật 6/2026<div style="margin-top:3px;font-size:11.5px">Flow · GPT Image 2 · Seedream · Wan 2.7 · Veo 3.1 · Kling 3.0 · Hailuo 2.3 · Seedance 2.0</div></div>
   <div class="footer-chips"><span class="chip">Biên kịch thực chiến</span><span class="chip">YouTube Strategy</span><span class="chip">AI Production</span></div>
 </div>
 </div><!-- /p2 -->
@@ -5100,10 +5194,142 @@ Dùng Skill:
 </div><!-- /wrap p3 -->
 
 <div class="footer">
-  <div class="footer-left"><strong>Claude Cowork & Skills</strong> · Cập nhật 5/2026<div style="margin-top:3px;font-size:11.5px">Nguồn: support.claude.com · platform.claude.com/cookbook · agentskills.io</div></div>
+  <div class="footer-left"><strong>Claude Cowork & Skills</strong> · Cập nhật 6/2026<div style="margin-top:3px;font-size:11.5px">Nguồn: support.claude.com · platform.claude.com/cookbook · agentskills.io</div></div>
   <div class="footer-chips"><span class="chip">Anthropic Docs</span><span class="chip">Agent Skills Spec</span><span class="chip">Cowork Guide</span></div>
 </div>
 </div><!-- /p3 -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — HƯỚNG DẪN KẾT NỐI
+══════════════════════════════════════════════ -->
+<div class="page" id="p4">
+
+<div class="p4-hero">
+  <div class="p4-hero-inner">
+    <div class="p4-tag">Hướng dẫn từng bước · Cập nhật 6/2026</div>
+    <h1>Kết Nối &<br><em>Tích Hợp Công Cụ</em></h1>
+    <p class="p4-hero-desc">Hướng dẫn chi tiết kết hợp các công cụ AI để làm việc mạnh hơn. Bắt đầu với NotebookLM × Gemini — combo research mạnh nhất hiện tại.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0">
+
+<!-- NOTEBOOKLM + GEMINI -->
+<div class="block" style="margin-top:48px">
+  <div class="sec-label">Tích hợp #1</div>
+  <div class="sec-h">NotebookLM <span>× Gemini</span></div>
+
+  <p style="font-size:14px;color:var(--ink3);line-height:1.7;max-width:720px;margin-bottom:20px">Từ 4/2026, NotebookLM được xây trên <strong>Gemini 3</strong> và tích hợp 2 chiều với Gemini app. Bạn attach notebook (chứa tài liệu của bạn) vào cuộc trò chuyện Gemini — kết hợp <strong>research có dẫn nguồn</strong> của NotebookLM với <strong>suy luận và web search realtime</strong> của Gemini.</p>
+
+  <div class="cg-combine">
+    <div style="background:#f5f8ff;border:1.5px solid #c0ccdf;border-radius:14px;padding:18px 20px">
+      <div style="font-size:22px;margin-bottom:8px">📓</div>
+      <div style="font-family:var(--ff-head);font-size:16px;font-weight:600;color:#2468c8;margin-bottom:6px">NotebookLM</div>
+      <div style="font-size:13px;color:var(--ink3);line-height:1.6">Grounded trong tài liệu của bạn. Trả lời chính xác, luôn dẫn nguồn, không bịa. Nhưng giới hạn ở những gì đã upload.</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--teal)">+</div>
+    <div style="background:#f5faf5;border:1.5px solid #c0d8c0;border-radius:14px;padding:18px 20px">
+      <div style="font-size:22px;margin-bottom:8px">💎</div>
+      <div style="font-family:var(--ff-head);font-size:16px;font-weight:600;color:#18a07c;margin-bottom:6px">Gemini</div>
+      <div style="font-size:13px;color:var(--ink3);line-height:1.6">Suy luận mạnh, sáng tạo, web search realtime, thực thi tác vụ. Kết hợp tài liệu với kiến thức rộng và dữ liệu mới.</div>
+    </div>
+  </div>
+
+  <div style="font-family:var(--ff-head);font-size:18px;font-weight:600;margin:24px 0 16px;color:var(--ink)">Cách kết nối — dưới 1 phút</div>
+  <div class="idea-flow" style="margin-bottom:28px">
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#2468c8">①</div><div class="is-line"></div></div>
+      <div class="is-body">
+        <div class="is-title">Mở Gemini app (web hoặc mobile)</div>
+        <div class="is-desc">Vào gemini.google.com hoặc app trên điện thoại. Đăng nhập cùng tài khoản Google đang dùng cho NotebookLM.</div>
+      </div>
+    </div>
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#2468c8">②</div><div class="is-line"></div></div>
+      <div class="is-body">
+        <div class="is-title">Bấm nút <strong>+</strong> trong ô prompt → chọn <strong>NotebookLM</strong></div>
+        <div class="is-desc">Nút + nằm cạnh ô nhập tin nhắn. Nếu chưa thấy mục NotebookLM, tính năng có thể đang roll out dần cho tài khoản của bạn.</div>
+      </div>
+    </div>
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#2468c8">③</div><div class="is-line"></div></div>
+      <div class="is-body">
+        <div class="is-title">Chọn notebook liên quan đến câu hỏi</div>
+        <div class="is-desc">Có thể attach 1 hoặc nhiều notebook cùng lúc, kèm cả ảnh hoặc file Drive. Gemini dùng các nguồn trong notebook làm tham chiếu.</div>
+      </div>
+    </div>
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#18a07c">④</div></div>
+      <div class="is-body">
+        <div class="is-title">Prompt như bình thường — Gemini kết hợp 2 nguồn</div>
+        <div class="is-desc">Gemini trả lời dựa trên tài liệu trong notebook + kiến thức rộng + web search realtime. Ví dụ hay: "Dựa trên ghi chú của tôi, lỗ hổng lớn nhất trong hiểu biết là gì, và bằng chứng mới nào từ web sẽ lấp đầy nó?"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:24px">
+    <div style="background:var(--paper);border:1.5px solid var(--border);border-radius:14px;padding:18px 20px">
+      <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px">🔄 Cách 1 — Attach tạm thời</div>
+      <div style="font-size:13px;color:var(--ink3);line-height:1.65">Attach notebook vào 1 cuộc trò chuyện cụ thể. Read-only — không ảnh hưởng notebook gốc. Phù hợp khi cần hỏi nhanh dựa trên tài liệu.</div>
+    </div>
+    <div style="background:var(--paper);border:1.5px solid var(--border);border-radius:14px;padding:18px 20px;border-left:3px solid var(--violet)">
+      <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px">⚡ Cách 2 — Gắn vào Gem</div>
+      <div style="font-size:13px;color:var(--ink3);line-height:1.65">Tạo Gem tùy chỉnh, viết instruction và link notebook vào. Mỗi lần mở Gem là sẵn sàng — như có trợ lý research riêng luôn nhớ tài liệu của bạn.</div>
+    </div>
+  </div>
+
+  <div class="callout c-gold">
+    <span class="callout-icon">💡</span>
+    <div>
+      <div class="callout-head">Lưu ý khi dùng</div>
+      <div class="callout-body">Tích hợp là <strong>read-only và một chiều</strong> — Gemini đọc được nguồn tĩnh (PDF, Docs, link) trong notebook, nhưng chat trong Gemini không ghi ngược lại NotebookLM. Các tính năng động như Audio Overview, mind map, quiz vẫn chỉ có trong NotebookLM. Notebook chia sẻ (shared) sẽ không hiện trong Gemini.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 USE CASES -->
+<div class="block">
+  <div class="sec-label">Ứng dụng thực tế</div>
+  <div class="sec-h">3 Quy Trình <span>Dùng NotebookLM × Gemini</span></div>
+
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="sc-header"><span class="sc-icon">📚</span><div><div class="sc-title">Nghiên cứu sâu một chủ đề</div><div class="sc-who">Học sinh · Nhà nghiên cứu</div></div></div>
+      <div class="sc-flow">
+        <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Upload tài liệu, paper, sách</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Attach → Gemini</span><span class="sc-arrow">→</span><span>Hỏi điểm chưa rõ + web search mới nhất</span></div>
+        <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Tạo Audio Overview để ôn lại</span></div>
+      </div>
+      <div class="sc-note">Tài liệu của bạn + kiến thức mới nhất từ web</div>
+    </div>
+    <div class="scenario">
+      <div class="sc-header"><span class="sc-icon">🎬</span><div><div class="sc-title">Viết kịch bản từ research</div><div class="sc-who">Biên kịch · Content creator</div></div></div>
+      <div class="sc-flow">
+        <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Lưu insight, transcript, comment data</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Attach → Gemini</span><span class="sc-arrow">→</span><span>Viết kịch bản dựa trên insight có thật</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Gemini</span><span class="sc-arrow">→</span><span>Bổ sung xu hướng mới từ web</span></div>
+      </div>
+      <div class="sc-note">Kịch bản grounded trong data thật, không bịa</div>
+    </div>
+    <div class="scenario">
+      <div class="sc-header"><span class="sc-icon">💼</span><div><div class="sc-title">Báo cáo & phân tích</div><div class="sc-who">Nhân viên · Quản lý</div></div></div>
+      <div class="sc-flow">
+        <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Upload báo cáo nội bộ, số liệu</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Attach → Gemini</span><span class="sc-arrow">→</span><span>Phân tích + so sánh benchmark thị trường</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Gemini</span><span class="sc-arrow">→</span><span>Tạo slide / executive summary</span></div>
+      </div>
+      <div class="sc-note">Dữ liệu nội bộ + bối cảnh thị trường realtime</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap p4 -->
+
+<div class="footer">
+  <div class="footer-left"><strong>Hướng Dẫn Kết Nối Công Cụ AI</strong> · Cập nhật 6/2026<div style="margin-top:3px;font-size:11.5px">Nguồn: support.google.com/notebooklm · blog.google · Anthropic Docs</div></div>
+  <div class="footer-chips"><span class="chip">NotebookLM × Gemini</span><span class="chip">Integration Guide</span></div>
+</div>
+</div><!-- /p4 -->
 
 <script>
 // ═══════════════════════════════════════════
