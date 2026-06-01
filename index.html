@@ -1062,7 +1062,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
     <h1>Bản Đồ<br><em>Công Cụ AI</em><br>Hiện Tại</h1>
     <p class="p0-hero-desc">Từ Chat AI đến tạo ảnh, video, nhạc, slide — tổng quan tất cả công cụ AI đang được dùng thực tế năm 2025–2026, kèm cách ứng dụng cụ thể.</p>
     <div class="p0-hero-stats">
-      <div class="p0-stat"><span class="p0-stat-num">40+</span><div class="p0-stat-lbl">AI Tools</div></div>
+      <div class="p0-stat"><span class="p0-stat-num">43+</span><div class="p0-stat-lbl">AI Tools</div></div>
       <div class="p0-stat"><span class="p0-stat-num">7</span><div class="p0-stat-lbl">Danh mục</div></div>
       <div class="p0-stat"><span class="p0-stat-num">2026</span><div class="p0-stat-lbl">Cập nhật</div></div>
       <div class="p0-stat"><span class="p0-stat-num">12+</span><div class="p0-stat-lbl">Ví dụ thực tế</div></div>
@@ -1186,6 +1186,79 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
         <div class="use-item"><span class="use-icon">🔬</span><span>Research nhanh trước khi viết nội dung</span></div>
       </div>
       <div class="ai-price">Free · Pro $20/tháng</div>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="chat">
+    <div class="ai-card-top">
+      <div class="ai-card-icon" style="background:rgba(20,20,20,.1)">𝕏</div>
+      <div>
+        <div class="ai-card-name">Grok 4</div>
+        <div class="ai-card-version">xAI · Grok 4 Fast · Grok 4.20</div>
+      </div>
+      <span class="ai-badge-best">Realtime X/Twitter</span>
+    </div>
+    <div class="ai-card-body">
+      <div class="ai-card-desc">Model của xAI tích hợp native với X (Twitter) — truy cập dữ liệu mạng xã hội và tin tức realtime. Context window <strong>2M token</strong> (lớn nhất hiện tại). Grok 4.20 chạy 4 agent song song, mạnh về tool-calling và tác vụ cần dữ liệu live.</div>
+      <div class="ai-card-uses">
+        <div class="use-item"><span class="use-icon">📡</span><span>Theo dõi xu hướng X/Twitter realtime</span></div>
+        <div class="use-item"><span class="use-icon">📰</span><span>Tin tức nóng, sự kiện đang diễn ra</span></div>
+        <div class="use-item"><span class="use-icon">📄</span><span>Xử lý tài liệu cực dài (2M token context)</span></div>
+        <div class="use-item"><span class="use-icon">🔧</span><span>Tool-calling, workflow cần dữ liệu live</span></div>
+      </div>
+      <div class="ai-card-tags">
+        <span class="ai-tag" style="background:#f0f0f0;color:#333;border:1px solid rgba(0,0,0,.15)">2M context</span>
+        <span class="ai-tag" style="background:#fff2ee;color:#b83c1a;border:1px solid rgba(184,60,26,.2)">Realtime data</span>
+      </div>
+      <div class="ai-price">Qua X Premium+ · API $2/1M tokens</div>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="chat">
+    <div class="ai-card-top">
+      <div class="ai-card-icon" style="background:rgba(26,78,140,.1)">🐋</div>
+      <div>
+        <div class="ai-card-name">DeepSeek</div>
+        <div class="ai-card-version">V3.2 · V4 — DeepSeek (Trung Quốc)</div>
+      </div>
+      <span class="ai-badge-best">Giá tốt nhất</span>
+    </div>
+    <div class="ai-card-body">
+      <div class="ai-card-desc">Model Trung Quốc đạt ~90% chất lượng GPT-5.4 với chi phí cực thấp ($0.28/1M token). Open-weight (MIT license), chạy local được. Lý tưởng cho xử lý khối lượng lớn, automation pipeline và workload nhạy chi phí.</div>
+      <div class="ai-card-uses">
+        <div class="use-item"><span class="use-icon">💰</span><span>Batch processing, automation chi phí thấp</span></div>
+        <div class="use-item"><span class="use-icon">💻</span><span>Coding chất lượng cao, giá rẻ</span></div>
+        <div class="use-item"><span class="use-icon">🔧</span><span>Self-host được — kiểm soát data hoàn toàn</span></div>
+      </div>
+      <div class="ai-card-tags">
+        <span class="ai-tag" style="background:#edfaf3;color:#0d6e5a;border:1px solid rgba(13,110,90,.2)">Open-weight</span>
+        <span class="ai-tag" style="background:#fffbee;color:#b07c10;border:1px solid rgba(176,124,16,.2)">Rẻ nhất</span>
+      </div>
+      <div class="ai-price">API $0.28/1M token · Self-host miễn phí</div>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="chat">
+    <div class="ai-card-top">
+      <div class="ai-card-icon" style="background:rgba(120,40,140,.1)">🌐</div>
+      <div>
+        <div class="ai-card-name">Qwen 3.5</div>
+        <div class="ai-card-version">Alibaba · Qwen 3.6 Plus · 3.7 Max</div>
+      </div>
+      <span class="ai-badge-best">Đa ngôn ngữ</span>
+    </div>
+    <div class="ai-card-body">
+      <div class="ai-card-desc">Model của Alibaba hỗ trợ <strong>201 ngôn ngữ</strong>, open-weight (Apache 2.0). Bản 9B chỉ $0.10/1M token nhưng điểm reasoning ngang model đắt gấp 50 lần. Mạnh về coding, đa ngôn ngữ và multimodal. Qwen 3.7 Max top reasoning benchmark.</div>
+      <div class="ai-card-uses">
+        <div class="use-item"><span class="use-icon">🌍</span><span>Dịch & nội dung 201 ngôn ngữ</span></div>
+        <div class="use-item"><span class="use-icon">💻</span><span>Coding & reasoning giá cực rẻ</span></div>
+        <div class="use-item"><span class="use-icon">🔧</span><span>Self-host, fine-tune cho nhu cầu riêng</span></div>
+      </div>
+      <div class="ai-card-tags">
+        <span class="ai-tag" style="background:#edfaf3;color:#0d6e5a;border:1px solid rgba(13,110,90,.2)">Apache 2.0</span>
+        <span class="ai-tag" style="background:#f5f0ff;color:#5a2e8c;border:1px solid rgba(90,46,140,.2)">201 ngôn ngữ</span>
+      </div>
+      <div class="ai-price">API từ $0.10/1M token · Self-host miễn phí</div>
     </div>
   </div>
 
@@ -1626,11 +1699,11 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
     </div>
     <div class="cmp-col">
       <div class="cmp-title">🔍 Cần thông tin mới nhất</div>
-      <div class="cmp-sub">Chọn → Perplexity / Gemini 3.5 Flash</div>
-      <div class="cmp-item"><span>✓</span><span>Research có nguồn dẫn chứng</span></div>
-      <div class="cmp-item"><span>✓</span><span>Cập nhật xu hướng realtime</span></div>
-      <div class="cmp-item"><span>✓</span><span>Phân tích trong Google Sheets</span></div>
-      <div class="cmp-item"><span>✓</span><span>Agent workflows tốc độ cao (3.5 Flash)</span></div>
+      <div class="cmp-sub">Chọn → Perplexity / Gemini / Grok</div>
+      <div class="cmp-item"><span>✓</span><span>Research có nguồn dẫn chứng (Perplexity)</span></div>
+      <div class="cmp-item"><span>✓</span><span>Xu hướng X/Twitter realtime (Grok 4)</span></div>
+      <div class="cmp-item"><span>✓</span><span>Phân tích trong Google Sheets (Gemini)</span></div>
+      <div class="cmp-item"><span>✓</span><span>Tiết kiệm chi phí lớn → DeepSeek / Qwen</span></div>
     </div>
   </div>
 </div>
@@ -1766,7 +1839,9 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
       <div class="eco-tool">ChatGPT GPT-5.5 <span class="eco-tool-sub">Đa năng</span></div>
       <div class="eco-tool">Gemini 3.5 Flash <span class="eco-tool-sub">Google ecosystem</span></div>
       <div class="eco-tool">Perplexity <span class="eco-tool-sub">Search AI</span><span class="eco-free">FREE</span></div>
-      <div class="eco-tool">Mistral / Llama <span class="eco-tool-sub">Open source</span><span class="eco-free">FREE</span></div>
+      <div class="eco-tool">Grok 4 <span class="eco-tool-sub">Realtime X · 2M</span></div>
+      <div class="eco-tool">DeepSeek V4 <span class="eco-tool-sub">Rẻ nhất</span><span class="eco-free">FREE</span></div>
+      <div class="eco-tool">Qwen 3.5 <span class="eco-tool-sub">201 ngôn ngữ</span><span class="eco-free">FREE</span></div>
     </div>
     <div>
       <div class="eco-col-title" style="color:#e0446a;border-color:#e0446a">🖼️ Tạo Ảnh</div>
@@ -2235,6 +2310,7 @@ body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
     <div class="rc">
       <div class="rc-title"><span style="color:var(--teal);font-size:18px">✓</span> Nên làm</div>
       <div class="rule"><span class="rule-icon">🎯</span><div><div class="rule-text"><strong>Bắt đầu với Task + Context</strong> — 2 thành phần tối thiểu để prompt hoạt động tốt.</div></div></div>
+      <div class="rule"><span class="rule-icon">✅</span><div><div class="rule-text"><strong>Định nghĩa "Success Criteria"</strong> — "Kết quả tốt trông như thế nào?". Đây là best practice #1 của 2026.</div><div class="rule-note">Hầu hết prompt thất bại vì không định nghĩa rõ "done".</div></div></div>
       <div class="rule"><span class="rule-icon">🔁</span><div><div class="rule-text"><strong>Iterate ngay trong cuộc trò chuyện</strong> — "Giữ cấu trúc nhưng ngắn hơn / formal hơn / thêm ví dụ".</div><div class="rule-note">Đừng bắt đầu lại từ đầu — tiếp tục điều chỉnh.</div></div></div>
       <div class="rule"><span class="rule-icon">👁️</span><div><div class="rule-text"><strong>Đặt thông tin quan trọng ở đầu và cuối</strong> — phần giữa dễ bị model "quên".</div><div class="rule-note">Lost-in-the-middle — đã được nghiên cứu xác nhận.</div></div></div>
       <div class="rule"><span class="rule-icon">📐</span><div><div class="rule-text"><strong>Chỉ định định dạng cụ thể</strong> — "5 bullet points", "bảng 3 cột", "dưới 200 từ".</div></div></div>
