@@ -5400,10 +5400,115 @@ Dùng Skill:
   </div>
 </div>
 
-<!-- 3 USE CASES -->
+<!-- WORKED EXAMPLE — chi tiết -->
 <div class="block">
-  <div class="sec-label">Ứng dụng thực tế</div>
-  <div class="sec-h">3 Quy Trình <span>Dùng NotebookLM × Gemini</span></div>
+  <div class="sec-label">Ví dụ thực tiễn — từng bước</div>
+  <div class="sec-h">Tình Huống Thật: <span>Viết Kịch Bản YouTube Về "Gen Z Nghỉ Việc"</span></div>
+
+  <p style="font-size:14px;color:var(--ink3);line-height:1.7;max-width:720px;margin-bottom:24px">Theo dõi một biên kịch dùng NotebookLM × Gemini để biến đống tài liệu nghiên cứu rời rạc thành kịch bản hoàn chỉnh — và xem sự khác biệt so với chỉ dùng Gemini đơn lẻ.</p>
+
+  <!-- timeline detailed -->
+  <div class="idea-flow" style="margin-bottom:28px">
+
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#2468c8">1</div><div class="is-line"></div></div>
+      <div class="is-body">
+        <div class="is-title">Gom tài liệu vào NotebookLM<span style="background:#eef4ff;color:#2468c8;font-family:var(--ff-mono);font-size:9.5px;padding:2px 8px;border-radius:4px;font-weight:600">NotebookLM</span></div>
+        <div class="is-sub">Tạo notebook "Gen Z Nghỉ Việc" và upload các nguồn:</div>
+        <div class="is-desc">• 3 báo cáo khảo sát về xu hướng nghỉ việc của Gen Z (PDF)<br>• Transcript 5 video YouTube viral về chủ đề này<br>• 200 comment đã copy từ các video đó (dán vào Google Doc)<br>• 1 bài nghiên cứu học thuật về động lực làm việc thế hệ trẻ</div>
+        <div class="callout c-blue" style="margin-top:12px;margin-bottom:0">
+          <span class="callout-icon">📌</span>
+          <div><div class="callout-body" style="margin:0">NotebookLM giờ đọc hiểu toàn bộ nguồn này và <strong>luôn trả lời kèm trích dẫn</strong> chính xác từ tài liệu nào, đoạn nào — không bịa.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#2468c8">2</div><div class="is-line"></div></div>
+      <div class="is-body">
+        <div class="is-title">Mở Gemini, attach notebook, đào insight<span style="background:#f5faf5;color:#18a07c;font-family:var(--ff-mono);font-size:9.5px;padding:2px 8px;border-radius:4px;font-weight:600">Gemini + Notebook</span></div>
+        <div class="is-sub">Bấm + → chọn notebook "Gen Z Nghỉ Việc" → prompt:</div>
+        <div class="is-prompt">
+          <div class="is-label">Prompt trong Gemini</div>
+          <button class="is-copy" onclick="copyIS(this,'ex-step2')">Copy</button>
+          <div id="ex-step2"><span style="color:#70d4be">Dựa trên tài liệu trong notebook:</span>
+<span style="color:#e8dece">1. Insight sâu nhất về lý do thật Gen Z nghỉ việc là gì?</span>
+<span style="color:#e8dece">   (không phải lý do bề mặt họ nói ra)</span>
+<span style="color:#e8dece">2. Trong 200 comment, cảm xúc nào lặp lại nhiều nhất?</span>
+<span style="color:#e8dece">3. Góc nào CHƯA video nào khai thác?</span>
+
+<span style="color:#888070"># Sau đó dùng web search:</span>
+<span style="color:#e8dece">4. Có số liệu/sự kiện mới nào (2026) về chủ đề này</span>
+<span style="color:#e8dece">   để củng cố insight trên không?</span></div>
+        </div>
+        <div class="is-desc" style="margin-top:10px">Gemini trả lời: tổng hợp insight <strong>từ tài liệu của bạn</strong> (có trích dẫn nguồn) + bổ sung <strong>số liệu mới 2026 từ web</strong> mà notebook chưa có. Đây là điều NotebookLM đơn lẻ không làm được (không có web search) và Gemini đơn lẻ cũng không làm được (không có data riêng của bạn).</div>
+      </div>
+    </div>
+
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#18a07c">3</div><div class="is-line"></div></div>
+      <div class="is-body">
+        <div class="is-title">Viết kịch bản ngay trong Gemini<span style="background:#f5faf5;color:#18a07c;font-family:var(--ff-mono);font-size:9.5px;padding:2px 8px;border-radius:4px;font-weight:600">Gemini + Notebook</span></div>
+        <div class="is-sub">Notebook vẫn đang attach — Gemini nhớ toàn bộ context:</div>
+        <div class="is-prompt">
+          <div class="is-label">Prompt tiếp theo</div>
+          <button class="is-copy" onclick="copyIS(this,'ex-step3')">Copy</button>
+          <div id="ex-step3"><span style="color:#70d4be">Từ insight số 1 ở trên, viết kịch bản YouTube 8 phút:</span>
+<span style="color:#e8dece">- Hook 30s dùng đúng câu nói thật từ comment trong notebook</span>
+<span style="color:#e8dece">- Dẫn chứng bằng số liệu thật từ báo cáo đã upload</span>
+<span style="color:#e8dece">- Chèn số liệu 2026 mới tìm được để tăng độ tin cậy</span>
+<span style="color:#e8dece">- Giọng kể chân thành, không lên lớp</span></div>
+        </div>
+        <div class="is-desc" style="margin-top:10px">Kịch bản ra đời <strong>dựa trên dữ liệu có thật</strong> — quote comment thật, số liệu thật từ báo cáo của bạn, kèm dẫn chứng mới nhất. Không phải nội dung chung chung do AI tự bịa.</div>
+      </div>
+    </div>
+
+    <div class="idea-step">
+      <div class="is-dot"><div class="is-circle" style="border-color:#2468c8">4</div></div>
+      <div class="is-body">
+        <div class="is-title">Quay lại NotebookLM tạo Audio Overview<span style="background:#eef4ff;color:#2468c8;font-family:var(--ff-mono);font-size:9.5px;padding:2px 8px;border-radius:4px;font-weight:600">NotebookLM</span></div>
+        <div class="is-desc">Lưu kịch bản vào notebook → tạo <strong>Audio Overview</strong> (podcast 2 người dẫn) để nghe lại khi đi đường, kiểm tra mạch kịch bản có thuyết phục không. Tính năng này chỉ NotebookLM có.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HIỆU QUẢ — before/after -->
+  <div style="font-family:var(--ff-head);font-size:18px;font-weight:600;margin-bottom:16px;color:var(--ink)">Hiệu quả — Khác biệt rõ rệt</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+    <div style="background:#fdf6f4;border:1.5px solid #e8c8b8;border-radius:14px;padding:18px 20px">
+      <div style="font-size:13px;font-weight:700;color:var(--rust);margin-bottom:12px;display:flex;align-items:center;gap:8px">❌ Chỉ dùng Gemini đơn lẻ</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Phải copy-paste từng tài liệu vào mỗi lần chat, dễ vượt giới hạn</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Insight chung chung vì AI không "nhớ" hết tài liệu của bạn</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Quote và số liệu dễ bị bịa, khó kiểm chứng nguồn</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Mất context khi mở chat mới</div>
+      </div>
+    </div>
+    <div style="background:#f2faf5;border:1.5px solid #b8dcc4;border-radius:14px;padding:18px 20px">
+      <div style="font-size:13px;font-weight:700;color:#0d6e5a;margin-bottom:12px;display:flex;align-items:center;gap:8px">✓ NotebookLM × Gemini</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Tài liệu lưu 1 lần trong notebook, attach lại bất cứ lúc nào</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Insight sâu vì AI đọc toàn bộ nguồn cùng lúc, có trích dẫn</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Quote và số liệu lấy đúng từ nguồn — kiểm chứng được</div>
+        <div style="font-size:12.5px;color:var(--ink3);line-height:1.55">Kết hợp data riêng + web search mới nhất trong 1 lần hỏi</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout c-gold">
+    <span class="callout-icon">⚡</span>
+    <div>
+      <div class="callout-head">Kết quả cuối</div>
+      <div class="callout-body">Thay vì 2–3 tiếng đọc lại tài liệu rồi tự viết, biên kịch có kịch bản nháp <strong>grounded trong data thật</strong> chỉ trong ~30 phút — và mỗi câu đều truy được về nguồn. Đây là lý do combo này mạnh: <strong>độ chính xác của NotebookLM + độ linh hoạt và cập nhật của Gemini.</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 QUY TRÌNH KHÁC -->
+<div class="block">
+  <div class="sec-label">Các ứng dụng khác</div>
+  <div class="sec-h">3 Quy Trình <span>Phổ Biến Khác</span></div>
 
   <div class="scenario-grid">
     <div class="scenario">
@@ -5416,15 +5521,6 @@ Dùng Skill:
       <div class="sc-note">Tài liệu của bạn + kiến thức mới nhất từ web</div>
     </div>
     <div class="scenario">
-      <div class="sc-header"><span class="sc-icon">🎬</span><div><div class="sc-title">Viết kịch bản từ research</div><div class="sc-who">Biên kịch · Content creator</div></div></div>
-      <div class="sc-flow">
-        <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Lưu insight, transcript, comment data</span></div>
-        <div class="sc-step"><span class="sc-step-tool">Attach → Gemini</span><span class="sc-arrow">→</span><span>Viết kịch bản dựa trên insight có thật</span></div>
-        <div class="sc-step"><span class="sc-step-tool">Gemini</span><span class="sc-arrow">→</span><span>Bổ sung xu hướng mới từ web</span></div>
-      </div>
-      <div class="sc-note">Kịch bản grounded trong data thật, không bịa</div>
-    </div>
-    <div class="scenario">
       <div class="sc-header"><span class="sc-icon">💼</span><div><div class="sc-title">Báo cáo & phân tích</div><div class="sc-who">Nhân viên · Quản lý</div></div></div>
       <div class="sc-flow">
         <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Upload báo cáo nội bộ, số liệu</span></div>
@@ -5433,10 +5529,20 @@ Dùng Skill:
       </div>
       <div class="sc-note">Dữ liệu nội bộ + bối cảnh thị trường realtime</div>
     </div>
+    <div class="scenario">
+      <div class="sc-header"><span class="sc-icon">⚖️</span><div><div class="sc-title">Tổng hợp hợp đồng / tài liệu pháp lý</div><div class="sc-who">Luật sư · Người làm hợp đồng</div></div></div>
+      <div class="sc-flow">
+        <div class="sc-step"><span class="sc-step-tool">NotebookLM</span><span class="sc-arrow">→</span><span>Upload nhiều hợp đồng, điều khoản</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Attach → Gemini</span><span class="sc-arrow">→</span><span>So sánh điều khoản + tra luật mới nhất</span></div>
+        <div class="sc-step"><span class="sc-step-tool">Gemini</span><span class="sc-arrow">→</span><span>Liệt kê rủi ro, điểm cần lưu ý</span></div>
+      </div>
+      <div class="sc-note">Trích dẫn chính xác điều khoản + cập nhật luật</div>
+    </div>
   </div>
 </div>
 
 </div><!-- /wrap p4 -->
+
 
 <div class="footer">
   <div class="footer-left"><strong>Hướng Dẫn Kết Nối Công Cụ AI</strong> · Cập nhật 6/2026<div style="margin-top:3px;font-size:11.5px">Nguồn: support.google.com/notebooklm · blog.google · Anthropic Docs</div></div>
